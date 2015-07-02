@@ -1,0 +1,105 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp" tools:context=".Bandera"
+    android:padding="0dp">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="1"
+            android:id="@+id/linearLayout4"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1">
+
+            <FrameLayout
+                android:layout_width="116dp"
+                android:layout_height="match_parent"
+                android:background="#0080ff"
+                android:id="@+id/FrameLayout1"></FrameLayout>
+
+            <FrameLayout
+                android:layout_width="116dp"
+                android:layout_height="match_parent"
+                android:background="#00ff00"
+                android:layout_weight="0.75"
+                android:id="@+id/FrameLayout2">
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="116dp"
+                android:layout_height="match_parent"
+                android:background="#ffff30"
+                android:layout_weight="1.07"
+                android:id="@+id/FrameLayout3"></FrameLayout>
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="1">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="83dp"
+                    android:background="#ff1616"
+                    android:id="@+id/FrameLayout4">
+
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Calculadora"
+                        android:id="@+id/button1"
+                        android:layout_gravity="center"
+                        android:onClick="onClick"
+                        android:background="#ffffff" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="83dp"
+                    android:background="#000000"
+                    android:id="@+id/FrameLayout5">
+
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Login"
+                        android:id="@+id/button2"
+                        android:layout_gravity="center"
+                        android:background="#ffffff" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="83dp"
+                    android:background="#55ff00"
+                    android:id="@+id/FrameLayout6"
+                    android:layout_weight="2.92">
+
+                </FrameLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+</RelativeLayout>

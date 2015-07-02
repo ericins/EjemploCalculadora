@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".Bandera">
+    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/login" android:title="Log in"
+        android:icon="@android:drawable/presence_audio_online"
+        android:orderInCategory="50">
+        <menu>
+            <item android:id="@+id/twitter" android:title="Twitter"
+            android:orderInCategory="100" app:showAsAction="never"
+                android:icon="@android:drawable/btn_radio"/>
+            <item android:id="@+id/bbdd" android:title="BBDD"
+                android:orderInCategory="110" app:showAsAction="never"
+                android:icon="@android:drawable/sym_def_app_icon"/>
+        </menu>
+    </item>
+    <item android:id="@+id/exit" android:title="Exit"
+        android:orderInCategory="110" app:showAsAction="never" />
+    <item android:id="@+id/about" android:title="About"
+        android:orderInCategory="100" app:showAsAction="ifRoom"
+        android:icon="@android:drawable/ic_dialog_alert"/>
+
+</menu>
