@@ -13,11 +13,10 @@
         android:text="DEL"
         android:id="@+id/buttdel"
         android:onClick="onClickSigno"
-        android:layout_above="@+id/buttr"
+        android:layout_below="@+id/editText3"
         android:layout_toRightOf="@+id/butts"
-        android:layout_toEndOf="@+id/butts"
-        android:layout_marginLeft="78dp"
-        android:layout_marginStart="78dp" />
+        android:layout_alignRight="@+id/buttans"
+        android:layout_alignEnd="@+id/buttans" />
 
     <EditText
         android:layout_width="match_parent"
@@ -125,17 +124,19 @@
         android:layout_below="@+id/butt7"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:layout_toLeftOf="@+id/butt9"
+        android:layout_toStartOf="@+id/butt9" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="."
         android:id="@+id/buttp"
+        android:onClick="onClickSigno"
         android:layout_below="@+id/butt8"
-        android:layout_toLeftOf="@+id/butt9"
-        android:layout_toStartOf="@+id/butt9"
-        android:onClick="onClickSigno"/>
+        android:layout_toLeftOf="@+id/buttd"
+        android:layout_toStartOf="@+id/buttd" />
 
     <Button
         android:layout_width="wrap_content"
@@ -182,19 +183,29 @@
         android:layout_height="wrap_content"
         android:text="="
         android:id="@+id/butti"
-        android:layout_below="@+id/butt9"
-        android:layout_alignLeft="@+id/butt9"
-        android:layout_alignStart="@+id/butt9"
-        android:onClick="onClickSigno"/>
+        android:onClick="onClickSigno"
+        android:layout_below="@+id/buttans"
+        android:layout_toRightOf="@+id/buttm"
+        android:layout_toEndOf="@+id/buttm" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="De Gratis"
-        android:id="@+id/buttonGratis"
+        android:text="CALL"
+        android:id="@+id/buttonCall"
         android:onClick="onClick"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/buttdel"
-        android:layout_alignStart="@+id/buttdel" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ANS"
+        android:id="@+id/buttans"
+        android:layout_below="@+id/buttdel"
+        android:layout_toRightOf="@+id/butts"
+        android:layout_toEndOf="@+id/butts"
+        android:onClick="onClickAns"/>
 
 </RelativeLayout>

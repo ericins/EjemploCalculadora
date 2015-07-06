@@ -9,7 +9,7 @@
         <menu>
             <item android:id="@+id/twitter" android:title="Twitter"
             android:orderInCategory="100" app:showAsAction="never"
-                android:icon="@android:drawable/btn_radio"/>
+                android:icon="@drawable/twitter"/>
             <item android:id="@+id/bbdd" android:title="BBDD"
                 android:orderInCategory="110" app:showAsAction="never"
                 android:icon="@android:drawable/sym_def_app_icon"/>

@@ -27,7 +27,15 @@
                 android:layout_width="116dp"
                 android:layout_height="match_parent"
                 android:background="#0080ff"
-                android:id="@+id/FrameLayout1"></FrameLayout>
+                android:id="@+id/FrameLayout1">
+
+                <ImageButton
+                    android:id="@+id/snicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:src="@drawable/snicker"
+                    android:onClick="onClickS" />
+            </FrameLayout>
 
             <FrameLayout
                 android:layout_width="116dp"

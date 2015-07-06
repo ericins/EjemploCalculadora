@@ -13,18 +13,18 @@
         android:text="DEL"
         android:id="@+id/buttdel"
         android:onClick="onClickSigno"
-        android:layout_below="@+id/butt0"
+        android:layout_alignTop="@+id/butti"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/editText3"
         android:gravity="right"
         android:text="0"
-        android:height="50dp" />
+        android:height="50dp"
+        android:layout_alignParentTop="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -124,17 +124,19 @@
         android:layout_below="@+id/butt7"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:layout_alignRight="@+id/butt8"
+        android:layout_alignEnd="@+id/butt8" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="."
         android:id="@+id/buttp"
+        android:onClick="onClickSigno"
         android:layout_below="@+id/butt8"
-        android:layout_toLeftOf="@+id/butt9"
-        android:layout_toStartOf="@+id/butt9"
-        android:onClick="onClickSigno"/>
+        android:layout_toRightOf="@+id/butt8"
+        android:layout_toEndOf="@+id/butt8" />
 
     <Button
         android:layout_width="wrap_content"
@@ -142,7 +144,6 @@
         android:text="+"
         android:id="@+id/butts"
         android:layout_below="@+id/editText3"
-        android:layout_toRightOf="@+id/butt3"
         android:layout_toEndOf="@+id/butt3"
         android:onClick="onClickSigno"
         android:padding="2dp" />
@@ -185,11 +186,11 @@
         android:layout_height="wrap_content"
         android:text="="
         android:id="@+id/butti"
-        android:layout_below="@+id/butt9"
-        android:layout_alignLeft="@+id/butt9"
-        android:layout_alignStart="@+id/butt9"
         android:onClick="onClickSigno"
-        android:padding="2dp" />
+        android:padding="2dp"
+        android:layout_below="@+id/butt0"
+        android:layout_toRightOf="@+id/butt8"
+        android:layout_toEndOf="@+id/butt8" />
 
     <Button
         android:layout_width="wrap_content"
@@ -199,5 +200,15 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:onClick="onClickCall" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ANS"
+        android:id="@+id/buttans"
+        android:layout_alignTop="@+id/butti"
+        android:layout_toRightOf="@+id/butti"
+        android:layout_toEndOf="@+id/butti"
+        android:onClick="onClickAns" />
 
 </RelativeLayout>

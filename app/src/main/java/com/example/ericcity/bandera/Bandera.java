@@ -1,12 +1,15 @@
 package com.example.ericcity.bandera;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 
@@ -14,6 +17,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
 
     Button b;
     Button b2;
+    ImageButton b3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +28,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
         //b.setOnClickListener(lis);
         b.setOnClickListener(this);
         b2.setOnClickListener(this);
+        b3 =(ImageButton) findViewById(R.id.snicker);
     }
 
     @Override
@@ -46,9 +51,10 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
                 Toast.makeText(Bandera.this,"Hello",Toast.LENGTH_SHORT).show();
                 return true;
 
-            case R.id.login:
+            case R.id.exit:
                     //Intent intent = new Intent(getApplicationContext(), Login.class);
                     //startActivity(intent);
+                    finish();
                 return true;
 
             default:
@@ -78,6 +84,21 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
             default:
                 break;
         }
+
+    }
+
+    public void onClickS(View v){/*
+        View.OnClickListener myOnClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(),ResultActivity.class);//si fessim this. esariem accedint al listener per aixo fem getaplicationcontext
+                startActivity(i);
+            }
+        };
+
+        Snackbar.make(layout, R.string.snackbar_text, Snackbar.LENGTH_LONG)
+                .setAction(R.string.snackbar_action, myOnClickListener)
+                .show(); // Importante!!! No olvidar mostrar la Snackbar.*/
 
     }
 }

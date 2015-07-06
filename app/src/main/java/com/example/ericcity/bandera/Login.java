@@ -1,6 +1,8 @@
 package com.example.ericcity.bandera;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -37,8 +39,22 @@ public class Login extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
     public void onClick(View v){
+        BD db = new BD(this);
+
+        SQLiteDatabase bd = db.getWritableDatabase();
+
+        if (db != null) {
+
+            bd.execSQL("INSERT INTO STATISTICS_TABLE_NAME ('user','pass') VALUES ('us1','45')");
+            db.close();
+
+        }
+        //BD.createUser("dd",55);
+        /*
         Intent intent = new Intent(getApplicationContext(), Calculadora.class);
-        startActivity(intent);
+        startActivity(intent);*/
     }
 }

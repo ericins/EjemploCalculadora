@@ -32,14 +32,25 @@ public class Calculadora extends ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId()) {
+            case R.id.nav:
+                Toast a = Toast.makeText(Calculadora.this, "Abriendo navegador", Toast.LENGTH_SHORT);
+                a.setGravity(Gravity.CENTER, 0, 0);
+                a.setDuration(Toast.LENGTH_SHORT);
+                a.show();
+                Intent i = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("http://www.google.com"));
+                startActivity(i);
+            case R.id.exit:
+                //Intent intent = new Intent(getApplicationContext(), Login.class);
+                //startActivity(intent);
+                finish();
+                return true;
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
-        return super.onOptionsItemSelected(item);
     }
     /*
     public void onClick(View v){
@@ -50,11 +61,11 @@ public class Calculadora extends ActionBarActivity {
     int primero = 0;
     int segundo = 0;
     boolean sign = false;
-    boolean sign2 = false;
     String signo;
+    int ans = 0;
 
     public void onClick(View v) {
-        if (sign == false) {
+        if (!sign) {
             int num;
             TextView Numero = (TextView) findViewById(R.id.editText3);
 
@@ -185,6 +196,7 @@ public class Calculadora extends ActionBarActivity {
 
 
     public void onClickSigno(View v){
+        String signo2;
         TextView Numero = (TextView) findViewById(R.id.editText3);
         switch(v.getId()){
             case R.id.butts:
@@ -194,100 +206,7 @@ public class Calculadora extends ActionBarActivity {
                     signo="+";
                 }
                 else{
-                    int resultado=0;
-                    switch (signo){
-                        case "+":
-                            resultado = primero + segundo;
-                            Numero.setText(resultado + "+");
-                            break;
-                        case "-":
-                            resultado = primero + segundo;
-                            Numero.setText(resultado + "-");
-                            break;
-                        case "*":
-                            resultado = primero + segundo;
-                            Numero.setText(resultado + "*");
-                            break;
-                        case "/":
-                            resultado = primero + segundo;
-                            Numero.setText(resultado + "/");
-                            break;
-                    }
-                    primero = resultado;
-                    segundo = 0;
-                    signo="+";
-                }
-                break;
-            case R.id.buttr:
-                if (sign==false) {
-                    sign = true;
-                    Numero.setText(primero + "-");
-                    signo = "-";
-                }
-                else{
-                    int resultado=0;
-                    switch (signo){
-                        case "+":
-                            resultado = primero + segundo;
-                            Numero.setText(resultado + "+");
-                            break;
-                        case "-":
-                            resultado = primero + segundo;
-                            Numero.setText(resultado + "-");
-                            break;
-                        case "*":
-                            resultado = primero + segundo;
-                            Numero.setText(resultado + "*");
-                            break;
-                        case "/":
-                            resultado = primero + segundo;
-                            Numero.setText(resultado + "/");
-                            break;
-                    }
-                    primero = resultado;
-                    segundo = 0;
-                    signo="-";
-                }
-                break;
-            case R.id.buttd:
-                if (sign==false) {
-                    Numero.setText(primero + "/");
-                    signo = "/";
-                    sign = true;
-                }
-                else{
-                    int resultado=0;
-                    switch (signo){
-                        case "+":
-                            resultado = primero + segundo;
-                            Numero.setText(resultado + "+");
-                            break;
-                        case "-":
-                            resultado = primero + segundo;
-                            Numero.setText(resultado + "-");
-                            break;
-                        case "*":
-                            resultado = primero + segundo;
-                            Numero.setText(resultado + "*");
-                            break;
-                        case "/":
-                            resultado = primero + segundo;
-                            Numero.setText(resultado + "/");
-                            break;
-                    }
-                    primero = resultado;
-                    segundo = 0;
-                    signo="/";
-                }
-                break;
-            case R.id.buttm:
-                if (sign==false) {
-                    Numero.setText(primero + "*");
-                    signo = "*";
-                    sign = true;
-                }
-                else{
-                    String signo2 = "*";
+                    signo2 = "+";
                     int resultado=0;
                     switch (signo){
                         case "+":
@@ -295,49 +214,164 @@ public class Calculadora extends ActionBarActivity {
                             Numero.setText(resultado + signo2);
                             break;
                         case "-":
-                            resultado = primero + segundo;
-                            Numero.setText(resultado + "-");
+                            resultado = primero - segundo;
+                            Numero.setText(resultado + signo2);
                             break;
                         case "*":
-                            resultado = primero + segundo;
-                            Numero.setText(resultado + "*");
+                            resultado = primero * segundo;
+                            Numero.setText(resultado + signo2);
                             break;
                         case "/":
+                            resultado = primero / segundo;
+                            Numero.setText(resultado + signo2);
+                            break;
+                    }
+                    primero = resultado;
+                    ans = resultado;
+                    segundo = 0;
+                    signo="+";
+                }
+                break;
+            case R.id.buttr:
+                if (!sign) {
+                    sign = true;
+                    Numero.setText(primero + "-");
+                    signo = "-";
+                }
+                else{
+                    signo2 = "-";
+                    int resultado=0;
+                    switch (signo){
+                        case "+":
                             resultado = primero + segundo;
-                            Numero.setText(resultado + "/");
+                            Numero.setText(resultado + signo2);
+                            break;
+                        case "-":
+                            resultado = primero - segundo;
+                            Numero.setText(resultado + signo2);
+                            break;
+                        case "*":
+                            resultado = primero * segundo;
+                            Numero.setText(resultado + signo2);
+                            break;
+                        case "/":
+                            resultado = primero / segundo;
+                            Numero.setText(resultado + signo2);
+                            break;
+                    }
+                    primero = resultado;
+                    segundo = 0;
+                    ans = resultado;
+                    signo="-";
+                }
+                break;
+            case R.id.buttd:
+                if (!sign) {
+                    Numero.setText(primero + "/");
+                    signo = "/";
+                    sign = true;
+                }
+                else{
+                    signo2 = "/";
+                    int resultado=0;
+                    switch (signo){
+                        case "+":
+                            resultado = primero + segundo;
+                            Numero.setText(resultado + signo2);
+                            break;
+                        case "-":
+                            resultado = primero - segundo;
+                            Numero.setText(resultado + signo2);
+                            break;
+                        case "*":
+                            resultado = primero * segundo;
+                            Numero.setText(resultado + signo2);
+                            break;
+                        case "/":
+                            resultado = primero / segundo;
+                            Numero.setText(resultado + signo2);
+                            break;
+                    }
+                    primero = resultado;
+                    segundo = 0;
+                    signo="/";
+                    ans = resultado;
+
+                }
+                break;
+            case R.id.buttm:
+                if (!sign) {
+                    Numero.setText(primero + "*");
+                    signo = "*";
+                    sign = true;
+                }
+                else{
+                    signo2 = "*";
+                    int resultado=0;
+                    switch (signo){
+                        case "+":
+                            resultado = primero + segundo;
+                            Numero.setText(resultado + signo2);
+                            break;
+                        case "-":
+                            resultado = primero - segundo;
+                            Numero.setText(resultado + signo2);
+                            break;
+                        case "*":
+                            resultado = primero * segundo;
+                            Numero.setText(resultado + signo2);
+                            break;
+                        case "/":
+                            resultado = primero / segundo;
+                            Numero.setText(resultado + signo2);
                             break;
                     }
                     primero = resultado;
                     segundo = 0;
                     signo="*";
+                    ans = resultado;
                 }
                 break;
             case R.id.butti:
-                int resultado=0;
+                int resultado;
                 switch(signo){
                     case "+":
                         resultado = primero + segundo;
                         Numero.setText(String.valueOf(resultado));
                         primero = resultado;
                         segundo = 0;
+                        ans = resultado;
                         break;
                     case "-":
                         resultado = primero - segundo;
                         Numero.setText(String.valueOf(resultado));
                         primero = resultado;
                         segundo = 0;
+                        ans = resultado;
                         break;
                     case "*":
                         resultado = primero * segundo;
                         Numero.setText(String.valueOf(resultado));
                         primero = resultado;
                         segundo = 0;
+                        ans = resultado;
                         break;
                     case "/":
-                        resultado = primero / segundo;
-                        Numero.setText(String.valueOf(resultado));
-                        primero = resultado;
-                        segundo = 0;
+                        if (segundo==0){
+                            Toast.makeText(Calculadora.this,"Error /0",Toast.LENGTH_SHORT).show();
+                            int def=0;
+                            Numero.setText(String.valueOf(def));
+                            primero = 0;
+                            segundo = 0;
+                            sign = false;
+                        }
+                        else {
+                            resultado = primero / segundo;
+                            Numero.setText(String.valueOf(resultado));
+                            primero = resultado;
+                            segundo = 0;
+                            ans = resultado;
+                        }
                         break;
 
                 }
@@ -362,5 +396,16 @@ public class Calculadora extends ActionBarActivity {
         a.show();
         Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:112"));
         startActivity(intent);
+    }
+    public void onClickAns(View v) {
+        TextView Numero = (TextView) findViewById(R.id.editText3);
+        if (!sign){
+            primero = ans;
+            Numero.setText(String.valueOf(primero));
+        }
+        else{
+            segundo = ans;
+            Numero.setText(String.valueOf(primero + signo + segundo));
+        }
     }
 }
