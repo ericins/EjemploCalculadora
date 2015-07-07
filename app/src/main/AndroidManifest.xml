@@ -24,6 +24,10 @@
             android:name=".Login"
             android:label="@string/title_activity_login" >
         </activity>
+        <activity
+            android:name=".UserList"
+            android:label="@string/title_activity_user_list" >
+        </activity>
     </application>
 
 </manifest>

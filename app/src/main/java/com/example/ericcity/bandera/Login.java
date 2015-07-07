@@ -1,21 +1,47 @@
 package com.example.ericcity.bandera;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
-public class Login extends ActionBarActivity {
+public class Login extends ActionBarActivity implements View.OnClickListener{
+
+
+    EditText name;
+    EditText pass;
+
+    BD baseDades;
+
+    Button b;
+    Button b2;
+    Button ok;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        name = (EditText)findViewById(R.id.editText);
+        pass =  (EditText) findViewById(R.id.editText2);
+
+        b = (Button) findViewById(R.id.button3);
+        b.setOnClickListener(this);
+        b2 =(Button) findViewById(R.id.button4);
+        b2.setOnClickListener(this);
+        ok = (Button) findViewById(R.id.button);
+        ok.setOnClickListener(this);
+
+        baseDades = new BD(getApplicationContext());
     }
 
     @Override
@@ -40,21 +66,42 @@ public class Login extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    int count = 0;
 
     public void onClick(View v){
-        BD db = new BD(this);
+        switch (v.getId()){
+            case R.id.button:
+                ContentValues valuesToStore = new ContentValues();
+                valuesToStore.put("name", String.valueOf(name.getText()));
+                valuesToStore.put("pass", String.valueOf(pass.getText()));
 
-        SQLiteDatabase bd = db.getWritableDatabase();
+                baseDades.createUser(valuesToStore, "Login");
 
-        if (db != null) {
-
-            bd.execSQL("INSERT INTO STATISTICS_TABLE_NAME ('user','pass') VALUES ('us1','45')");
-            db.close();
+                Toast.makeText(getApplicationContext(), "Fet", Toast.LENGTH_SHORT).show();
+                name.setText("");
+                pass.setText("");
+                break;
+            case R.id.button4:
+                Log.v("button4","Clicat");
+                if (count == 5){
+                    b.setVisibility(View.VISIBLE);
+                }
+                else{
+                    count += 1;
+                }
+                break;
+            case R.id.button3:
+                Intent intent = new Intent(getApplicationContext(), UserList.class);
+                startActivity(intent);
+                break;
 
         }
+
+    }
         //BD.createUser("dd",55);
         /*
         Intent intent = new Intent(getApplicationContext(), Calculadora.class);
         startActivity(intent);*/
-    }
+
+
 }

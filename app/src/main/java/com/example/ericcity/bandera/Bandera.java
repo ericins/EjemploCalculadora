@@ -29,6 +29,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
         b.setOnClickListener(this);
         b2.setOnClickListener(this);
         b3 =(ImageButton) findViewById(R.id.snicker);
+        b3.setOnClickListener(this);
     }
 
     @Override

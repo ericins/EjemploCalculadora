@@ -15,7 +15,7 @@ public class BD extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "BaseDeDades";
     private static final String STATISTICS_TABLE_NAME = "Login";
     private static final String STATISTICS_TABLE_CREATE = "CREATE TABLE " + STATISTICS_TABLE_NAME
-            + " (id INTEGER PRIMARY KEY AUTOINCREMENT, user TEXT, password INTEGER)";
+            + " (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, pass INTEGER)";
 
 
     BD(Context context) {
@@ -34,6 +34,14 @@ public class BD extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + STATISTICS_TABLE_NAME);
 
         db.execSQL(STATISTICS_TABLE_CREATE);
+    }
+
+    public void createUser (ContentValues values, String tableName) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.insert(
+                tableName,
+                null,
+                values);
     }
 
 
