@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:src="@android:drawable/btn_star_big_on" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:text="PRRRR2" />
+
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:text="PRRRRR"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

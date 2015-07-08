@@ -28,6 +28,10 @@
             android:name=".UserList"
             android:label="@string/title_activity_user_list" >
         </activity>
+        <activity
+            android:name=".Reproductor"
+            android:label="@string/title_activity_reproductor" >
+        </activity>
     </application>
 
 </manifest>

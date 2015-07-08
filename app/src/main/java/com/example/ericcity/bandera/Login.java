@@ -20,6 +20,7 @@ public class Login extends ActionBarActivity implements View.OnClickListener{
 
     EditText name;
     EditText pass;
+    EditText address;
 
     BD baseDades;
 
@@ -33,6 +34,7 @@ public class Login extends ActionBarActivity implements View.OnClickListener{
         setContentView(R.layout.activity_login);
         name = (EditText)findViewById(R.id.editText);
         pass =  (EditText) findViewById(R.id.editText2);
+        address = (EditText) findViewById(R.id.editText4);
 
         b = (Button) findViewById(R.id.button3);
         b.setOnClickListener(this);
@@ -74,12 +76,14 @@ public class Login extends ActionBarActivity implements View.OnClickListener{
                 ContentValues valuesToStore = new ContentValues();
                 valuesToStore.put("name", String.valueOf(name.getText()));
                 valuesToStore.put("pass", String.valueOf(pass.getText()));
+                valuesToStore.put("address", String.valueOf(address.getText()));
 
                 baseDades.createUser(valuesToStore, "Login");
 
                 Toast.makeText(getApplicationContext(), "Fet", Toast.LENGTH_SHORT).show();
                 name.setText("");
                 pass.setText("");
+                address.setText("");
                 break;
             case R.id.button4:
                 Log.v("button4","Clicat");

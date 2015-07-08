@@ -1,17 +1,30 @@
 package com.example.ericcity.bandera;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+
+import java.util.ArrayList;
 
 
 public class UserList extends ActionBarActivity {
+
+    RecyclerView recycler;
+    LinearLayoutManager mLinearLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list);
+        recycler = (RecyclerView) findViewById(R.id.rv);mLinearLayout = new LinearLayoutManager(this);
+
+        recycler.setLayoutManager(mLinearLayout);
+        //mRecyclerView.setAdapter(new MyCustomAdapter());
     }
 
     @Override

@@ -17,7 +17,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
 
     Button b;
     Button b2;
-    ImageButton b3;
+    //ImageButton b3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +28,8 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
         //b.setOnClickListener(lis);
         b.setOnClickListener(this);
         b2.setOnClickListener(this);
-        b3 =(ImageButton) findViewById(R.id.snicker);
-        b3.setOnClickListener(this);
+        //b3 =(ImageButton) findViewById(R.id.snicker);
+        //b3.setOnClickListener(this);
     }
 
     @Override
@@ -82,13 +82,17 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
                 intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
                 break;
+            case R.id.button5:
+                intent = new Intent(getApplicationContext(), Reproductor.class);
+                startActivity(intent);
+                break;
             default:
                 break;
         }
 
     }
-
-    public void onClickS(View v){/*
+/*
+    public void onClickS(View v){
         View.OnClickListener myOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +103,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
 
         Snackbar.make(layout, R.string.snackbar_text, Snackbar.LENGTH_LONG)
                 .setAction(R.string.snackbar_action, myOnClickListener)
-                .show(); // Importante!!! No olvidar mostrar la Snackbar.*/
+                .show(); // Importante!!! No olvidar mostrar la Snackbar.
 
-    }
+    }*/
 }

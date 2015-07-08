@@ -29,12 +29,6 @@
                 android:background="#0080ff"
                 android:id="@+id/FrameLayout1">
 
-                <ImageButton
-                    android:id="@+id/snicker"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:src="@drawable/snicker"
-                    android:onClick="onClickS" />
             </FrameLayout>
 
             <FrameLayout
@@ -51,7 +45,9 @@
                 android:layout_height="match_parent"
                 android:background="#ffff30"
                 android:layout_weight="1.07"
-                android:id="@+id/FrameLayout3"></FrameLayout>
+                android:id="@+id/FrameLayout3">
+
+            </FrameLayout>
         </LinearLayout>
 
         <FrameLayout
@@ -79,7 +75,8 @@
                         android:id="@+id/button1"
                         android:layout_gravity="center"
                         android:onClick="onClick"
-                        android:background="#ffffff" />
+                        android:background="#ffffff"
+                        android:gravity="center" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -92,10 +89,12 @@
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Login"
-                        android:id="@+id/button2"
+                        android:text="Reproductor"
+                        android:id="@+id/button5"
                         android:layout_gravity="center"
-                        android:background="#ffffff" />
+                        android:onClick="onClick"
+                        android:background="#ffffff"
+                        android:gravity="center" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -105,6 +104,14 @@
                     android:id="@+id/FrameLayout6"
                     android:layout_weight="2.92">
 
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Register"
+                        android:id="@+id/button2"
+                        android:layout_gravity="center"
+                        android:background="#ffffff" />
                 </FrameLayout>
             </LinearLayout>
         </FrameLayout>
