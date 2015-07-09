@@ -40,6 +40,10 @@
             android:name=".GPS"
             android:label="@string/title_activity_gps" >
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="8bd2dc8d804012b408f00358704594650153082c" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
