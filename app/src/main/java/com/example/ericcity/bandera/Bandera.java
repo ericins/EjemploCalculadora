@@ -54,6 +54,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
             @Override
             public void success(Result<TwitterSession> result) {
                 // Do something with result, which provides a TwitterSession for making API calls
+
             }
 
             @Override
