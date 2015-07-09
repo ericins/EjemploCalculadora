@@ -97,7 +97,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
 
         switch (item.getItemId()) {
             case R.id.about:
-                Toast.makeText(Bandera.this,"Hello",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Bandera.this,"About me: awesome",Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.exit:
@@ -140,7 +140,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
                 break;
             case R.id.button8:
                 if (TwitOk == true) {
-                    TweetComposer.Builder builder = new TweetComposer.Builder(this).text("Best app ever!");//.image(myImageUri);
+                    TweetComposer.Builder builder = new TweetComposer.Builder(this).text("Twit Twit");//.image(myImageUri);
                     builder.show();
                 }
                 else{

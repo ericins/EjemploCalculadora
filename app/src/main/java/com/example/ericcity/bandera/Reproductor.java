@@ -85,8 +85,18 @@ public class Reproductor extends ActionBarActivity {
             case R.id.stop:
                 mp.stop();
                 mp.release();
-                started = false;
+                mp = MediaPlayer.create(this, R.raw.parousia);
+                //started = false;
                 break;
         }
+    }
+
+    @Override
+    protected void onStop() {
+        if (mp.isPlaying()){
+            mp.stop();
+            mp.release();
+        }
+        super.onStop();
     }
 }
