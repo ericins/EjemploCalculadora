@@ -75,7 +75,8 @@ public class GPS extends ActionBarActivity {
 
     @Override
     protected void onPause(){
-        locationManager.removeGpsStatusListener((GpsStatus.Listener)locationListener);
+        locationManager.removeUpdates(locationListener);
+        locationManager = null;
         super.onPause();
     }
 
