@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:text="GPS"
                     android:id="@+id/button6"
-                    android:layout_gravity="center_horizontal|top"
+                    android:layout_gravity="center"
                     android:nestedScrollingEnabled="false"
                     android:onClick="onClick" />
             </FrameLayout>
