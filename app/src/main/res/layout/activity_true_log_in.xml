@@ -6,34 +6,10 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.ericcity.bandera.TrueLogIn">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/scrollView2"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/frameLayout">
-
-            <TextView android:text="LOG IN" android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/login"
-                android:textStyle="bold"
-                android:textSize="30dp" />
-
-        </FrameLayout>
-    </ScrollView>
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal|bottom"
-        android:layout_alignTop="@+id/scrollView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="102dp"
@@ -114,5 +90,19 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:onClick="onClick" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/frameLayout">
+
+        <TextView android:text="LOG IN" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/login"
+            android:textStyle="bold"
+            android:textSize="30dp" />
+
+    </FrameLayout>
 
 </RelativeLayout>

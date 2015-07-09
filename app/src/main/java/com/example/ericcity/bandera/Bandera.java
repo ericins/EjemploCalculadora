@@ -40,6 +40,8 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
 
     Button b;
     Button b2;
+
+    boolean TwitOk = false;
     //ImageButton b3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
         //b.setOnClickListener(lis);
         b.setOnClickListener(this);
         b2.setOnClickListener(this);
+
         //b3 =(ImageButton) findViewById(R.id.snicker);
         //b3.setOnClickListener(this);
         loginButton = (TwitterLoginButton) findViewById(R.id.twitter_login_button);
@@ -60,13 +63,14 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
             @Override
             public void success(Result<TwitterSession> result) {
                 // Do something with result, which provides a TwitterSession for making API calls
-
+                TwitOk = true;
 
             }
 
             @Override
             public void failure(TwitterException exception) {
                 // Do something on failure
+                TwitOk = false;
             }
         });
     }
@@ -135,8 +139,13 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
                 startActivity(intent);
                 break;
             case R.id.button8:
-                TweetComposer.Builder builder = new TweetComposer.Builder(this).text("Best app ever!");//.image(myImageUri);
-                builder.show();
+                if (TwitOk == true) {
+                    TweetComposer.Builder builder = new TweetComposer.Builder(this).text("Best app ever!");//.image(myImageUri);
+                    builder.show();
+                }
+                else{
+                    Toast.makeText(Bandera.this,"Sin permiso",Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.button7:
                 intent = new Intent(getApplicationContext(), TrueLogIn.class);
