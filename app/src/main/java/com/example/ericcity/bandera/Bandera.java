@@ -20,6 +20,9 @@ import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
+import com.twitter.sdk.android.tweetcomposer.TweetComposer;
+
+import java.io.File;
 
 
 public class Bandera extends ActionBarActivity implements View.OnClickListener{
@@ -30,6 +33,9 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
     // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
     private static final String TWITTER_KEY = "t3jsjzbaaj8RYthOgyhvD3R61";
     private static final String TWITTER_SECRET = "tNcVT34QyB9w3p6S0SofdLXndT0c4YnchhhZd756br8egQxeqh";
+
+    //File myImageFile = new File("/path/to/image");
+    //Uri myImageUri = Uri.fromFile(myImageFile);
 
 
     Button b;
@@ -54,6 +60,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
             @Override
             public void success(Result<TwitterSession> result) {
                 // Do something with result, which provides a TwitterSession for making API calls
+
 
             }
 
@@ -115,7 +122,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
                 startActivity(intent);
                 break;
             case R.id.button2:
-                Toast.makeText(Bandera.this,"Login",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Bandera.this,"Register",Toast.LENGTH_SHORT).show();
                 intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
                 break;
@@ -125,6 +132,14 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
                 break;
             case R.id.button6:
                 intent = new Intent(getApplicationContext(), GPS.class);
+                startActivity(intent);
+                break;
+            case R.id.button8:
+                TweetComposer.Builder builder = new TweetComposer.Builder(this).text("Best app ever!");//.image(myImageUri);
+                builder.show();
+                break;
+            case R.id.button7:
+                intent = new Intent(getApplicationContext(), TrueLogIn.class);
                 startActivity(intent);
             default:
                 break;

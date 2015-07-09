@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -40,10 +40,15 @@
             android:name=".GPS"
             android:label="@string/title_activity_gps" >
         </activity>
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="8bd2dc8d804012b408f00358704594650153082c" />
+
+        <activity
+            android:name=".TrueLogIn"
+            android:label="@string/title_activity_true_log_in" >
+        </activity>
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

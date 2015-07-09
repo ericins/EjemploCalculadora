@@ -105,7 +105,8 @@
                         android:layout_height="wrap_content"
                         android:text="Log in"
                         android:id="@+id/button7"
-                        android:layout_gravity="left|center_vertical" />
+                        android:layout_gravity="left|center_vertical"
+                        android:onClick="onClick" />
 
                     <Button
                         android:layout_width="wrap_content"
@@ -113,6 +114,14 @@
                         android:text="Register"
                         android:id="@+id/button2"
                         android:layout_gravity="center" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Twittear"
+                        android:id="@+id/button8"
+                        android:layout_gravity="right|center_vertical"
+                        android:onClick="onClick" />
                 </FrameLayout>
 
                 <FrameLayout
