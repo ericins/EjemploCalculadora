@@ -35,16 +35,24 @@
                 android:layout_width="116dp"
                 android:layout_height="match_parent"
                 android:background="#00ff00"
-                android:layout_weight="0.75"
+                android:layout_weight="1.06"
                 android:id="@+id/FrameLayout2">
 
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GPS"
+                    android:id="@+id/button6"
+                    android:layout_gravity="center_horizontal|top"
+                    android:nestedScrollingEnabled="false"
+                    android:onClick="onClick" />
             </FrameLayout>
 
             <FrameLayout
                 android:layout_width="116dp"
                 android:layout_height="match_parent"
                 android:background="#ffff30"
-                android:layout_weight="1.07"
+                android:layout_weight="0.15"
                 android:id="@+id/FrameLayout3">
 
             </FrameLayout>
@@ -99,10 +107,9 @@
 
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="83dp"
+                    android:layout_height="match_parent"
                     android:background="#55ff00"
-                    android:id="@+id/FrameLayout6"
-                    android:layout_weight="2.92">
+                    android:id="@+id/FrameLayout6">
 
                     <Button
                         style="?android:attr/buttonStyleSmall"

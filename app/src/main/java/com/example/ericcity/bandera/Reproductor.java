@@ -17,10 +17,13 @@ public class Reproductor extends ActionBarActivity {
 
     //Button play;
 
+    MediaPlayer mp = new MediaPlayer();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reproductor);
+
+        mp = MediaPlayer.create(this, R.raw.parousia);
         //play = (Button)findViewById(R.id.play);
     }
 
@@ -46,34 +49,43 @@ public class Reproductor extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    MediaPlayer mediaPlayer = new MediaPlayer();
-    File sdCard = Environment.getExternalStorageDirectory();
-    File song = new File(sdCard.getAbsolutePath() + "/Music/Xi-parousia.mp3");
+    //MediaPlayer mediaPlayer = new MediaPlayer();
+
+    //File sdCard = Environment.getExternalStorageDirectory();
+    //File song = new File(sdCard.getAbsolutePath() + "/Music/Xi-parousia.mp3");
 
     boolean started = false;
 
     public void onClick(View v){
         switch (v.getId()) {
-            case R.id.play:
-                if (!mediaPlayer.isPlaying()&&(!started)){
+            case R.id.play:/*
+                if (!mp.isPlaying()&&(!started)){
                     try{
-                        mediaPlayer.setDataSource(song.getAbsolutePath());
-                        mediaPlayer.prepare();
+                        //mp.setDataSource(song.getAbsolutePath());
+
+                        mp.prepare();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                }
-                else {
-                    mediaPlayer.start();
+                    mp.start();
                     started = true;
                 }
-                break;
-            case R.id.pause:
-                mediaPlayer.pause();
+                else {
+                    mp.start();
+                }*/
+
+                if (mp.isPlaying()) {
+                    mp.pause();
+                }
+                else {
+                    mp.start();
+                }
+
                 break;
             case R.id.stop:
-                mediaPlayer.stop();
-                mediaPlayer.release();
+                mp.stop();
+                mp.release();
+                started = false;
                 break;
         }
     }

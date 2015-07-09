@@ -86,6 +86,9 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
                 intent = new Intent(getApplicationContext(), Reproductor.class);
                 startActivity(intent);
                 break;
+            case R.id.button6:
+                intent = new Intent(getApplicationContext(), GPS.class);
+                startActivity(intent);
             default:
                 break;
         }
