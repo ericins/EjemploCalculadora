@@ -43,11 +43,11 @@ public class TrueLogIn extends ActionBarActivity {
 
     BD bd;
     TextView tuser;
-    TextView tpass;
-    String user;
+    TextView  ttpass;
+    String user, tpass;
     String passcomp;
     boolean permis = false;
-    Toast a;
+    Toast a, b;
 
     public void onClick(View v) {
         switch (v.getId()) {
@@ -58,20 +58,41 @@ public class TrueLogIn extends ActionBarActivity {
                 break;
             case R.id.button9:
                 tuser = (TextView) findViewById(R.id.editText5);
-                tpass = (TextView) findViewById(R.id.editText6);
+                ttpass = (TextView) findViewById(R.id.editText6);
+                tpass = ttpass.getText().toString();
 
                 bd = new BD(getApplicationContext());
 
                 user = tuser.getText().toString();
 
                 Cursor c = bd.getPassByUser(user);
-                passcomp = c.toString();
+                //passcomp = c.toString();
+
+                if (c.moveToFirst()) {
+                    passcomp = c.getString(c.getColumnIndex("pass"));
+                }
+
+                if (passcomp == null){
+                    passcomp = "Es null";
+                }
+
+                //b = Toast.makeText(TrueLogIn.this, passcomp, Toast.LENGTH_LONG);
+                //b.show();
 
                 if (passcomp.equals(tpass)){
                     permis = true;
+                    tuser.setText("");
+                    ttpass.setText("");
+                    a = Toast.makeText(TrueLogIn.this, "Has entrat.", Toast.LENGTH_SHORT);
+                    a.show();
+                    intent = new Intent(getApplicationContext(), Bandera.class);
+                    startActivity(intent);
                 }
                 else{
                     a = Toast.makeText(TrueLogIn.this, "Wrong password.", Toast.LENGTH_SHORT);
+                    a.show();
+                    tuser.setText("");
+                    ttpass.setText("");
                 }
                 break;
             default:

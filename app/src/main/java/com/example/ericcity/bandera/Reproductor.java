@@ -79,6 +79,7 @@ public class Reproductor extends ActionBarActivity {
                 }
                 else {
                     mp.start();
+                    //findViewById(R.id.play).setBackgroundResource(R.drawable.);
                 }
 
                 break;
