@@ -1,11 +1,13 @@
 package com.example.ericcity.bandera;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -39,12 +41,38 @@ public class TrueLogIn extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    BD bd;
+    TextView tuser;
+    TextView tpass;
+    String user;
+    String passcomp;
+    boolean permis = false;
+    Toast a;
+
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button10:
                 Toast.makeText(TrueLogIn.this, "Register", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
+                break;
+            case R.id.button9:
+                tuser = (TextView) findViewById(R.id.editText5);
+                tpass = (TextView) findViewById(R.id.editText6);
+
+                bd = new BD(getApplicationContext());
+
+                user = tuser.getText().toString();
+
+                Cursor c = bd.getPassByUser(user);
+                passcomp = c.toString();
+
+                if (passcomp.equals(tpass)){
+                    permis = true;
+                }
+                else{
+                    a = Toast.makeText(TrueLogIn.this, "Wrong password.", Toast.LENGTH_SHORT);
+                }
                 break;
             default:
                 break;
