@@ -1,6 +1,8 @@
 package com.example.ericcity.bandera;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -37,7 +39,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
     //File myImageFile = new File("/path/to/image");
     //Uri myImageUri = Uri.fromFile(myImageFile);
 
-
+    SharedPreferences logged;
     Button b;
     Button b2;
 
@@ -55,6 +57,8 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
         //b.setOnClickListener(lis);
         b.setOnClickListener(this);
         b2.setOnClickListener(this);
+
+        logged = getSharedPreferences("LOGGED", Context.MODE_PRIVATE);
 
         //b3 =(ImageButton) findViewById(R.id.snicker);
         //b3.setOnClickListener(this);
@@ -118,16 +122,25 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
 
         return super.onOptionsItemSelected(item);*/
     }
+
+    boolean silent;
+
     public void onClick(View v){
+        silent = logged.getBoolean("LOGGED", false);
         switch(v.getId()){
             case R.id.button1:
-                Toast.makeText(Bandera.this, "Calculadora", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), Calculadora.class);
-                startActivity(intent);
+                if (silent == true) {
+                    Toast.makeText(Bandera.this, "Calculadora", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), Calculadora.class);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(Bandera.this, "No estas logejat", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.button2:
                 Toast.makeText(Bandera.this,"Register",Toast.LENGTH_SHORT).show();
-                intent = new Intent(getApplicationContext(), Login.class);
+                Intent intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
                 break;
             case R.id.button5:

@@ -1,6 +1,7 @@
 package com.example.ericcity.bandera;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -13,10 +14,18 @@ import android.widget.Toast;
 
 public class TrueLogIn extends ActionBarActivity {
 
+
+    SharedPreferences logged;
+    SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_true_log_in);
+
+
+        logged = getSharedPreferences("LOGGED", 0);
+        editor = logged.edit();
     }
 
     @Override
@@ -46,8 +55,9 @@ public class TrueLogIn extends ActionBarActivity {
     TextView  ttpass;
     String user, tpass;
     String passcomp;
-    boolean permis = false;
-    Toast a, b;
+    //boolean permis = false;
+    Toast a;
+    //Toast b;
 
     public void onClick(View v) {
         switch (v.getId()) {
@@ -80,7 +90,10 @@ public class TrueLogIn extends ActionBarActivity {
                 //b.show();
 
                 if (passcomp.equals(tpass)){
-                    permis = true;
+                    //permis = true;
+                    editor.putBoolean("LOGGED", true);
+                    editor.apply();
+
                     tuser.setText("");
                     ttpass.setText("");
                     a = Toast.makeText(TrueLogIn.this, "Has entrat.", Toast.LENGTH_SHORT);
