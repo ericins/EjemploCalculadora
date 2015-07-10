@@ -40,6 +40,8 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
     //Uri myImageUri = Uri.fromFile(myImageFile);
 
     SharedPreferences logged;
+    SharedPreferences.Editor editor;
+
     Button b;
     Button b2;
 
@@ -59,6 +61,10 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
         b2.setOnClickListener(this);
 
         logged = getSharedPreferences("LOGGED", Context.MODE_PRIVATE);
+        editor = logged.edit();
+
+        editor.putBoolean("LOGGED", false);
+        editor.apply();
 
         //b3 =(ImageButton) findViewById(R.id.snicker);
         //b3.setOnClickListener(this);
@@ -67,14 +73,18 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
             @Override
             public void success(Result<TwitterSession> result) {
                 // Do something with result, which provides a TwitterSession for making API calls
-                TwitOk = true;
+                //TwitOk = true;
+                editor.putBoolean("LOGGED", true);
+                editor.apply();
 
             }
 
             @Override
             public void failure(TwitterException exception) {
                 // Do something on failure
-                TwitOk = false;
+                //TwitOk = false;
+                editor.putBoolean("LOGGED", false);
+
             }
         });
     }
@@ -144,15 +154,20 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
                 startActivity(intent);
                 break;
             case R.id.button5:
-                intent = new Intent(getApplicationContext(), Reproductor.class);
-                startActivity(intent);
+                if (silent == true) {
+                    intent = new Intent(getApplicationContext(), Reproductor.class);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(Bandera.this, "No estas logejat", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.button6:
                 intent = new Intent(getApplicationContext(), GPS.class);
                 startActivity(intent);
                 break;
             case R.id.button8:
-                if (TwitOk == true) {
+                if (silent == true) {
                     TweetComposer.Builder builder = new TweetComposer.Builder(this).text("Twit Twit");//.image(myImageUri);
                     builder.show();
                 }
