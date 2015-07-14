@@ -7,7 +7,7 @@
         android:icon="@android:drawable/presence_audio_online"
         android:orderInCategory="50">
         <menu>
-            <item android:id="@+id/twitter" android:title="Twitter"
+            <item android:id="@+id/twitter" android:title="Twittear"
             android:orderInCategory="100" app:showAsAction="never"
                 android:icon="@drawable/twitter"/>
             <item android:id="@+id/bbdd" android:title="BBDD"

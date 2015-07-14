@@ -10,4 +10,5 @@
     <string name="title_activity_reproductor">Reproductor</string>
     <string name="title_activity_gps">GPS</string>
     <string name="title_activity_true_log_in">TrueLogIn</string>
+    <string name="title_activity_perfil">Perfil</string>
 </resources>

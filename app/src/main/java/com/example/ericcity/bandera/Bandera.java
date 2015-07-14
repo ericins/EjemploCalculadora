@@ -44,8 +44,8 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
 
     Button b;
     Button b2;
+    Boolean TwitOk;
 
-    boolean TwitOk = false;
     //ImageButton b3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +56,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
 
         b = (Button) findViewById(R.id.button1);
         b2 = (Button) findViewById(R.id.button2);
+
         //b.setOnClickListener(lis);
         b.setOnClickListener(this);
         b2.setOnClickListener(this);
@@ -63,8 +64,9 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
         logged = getSharedPreferences("LOGGED", Context.MODE_PRIVATE);
         editor = logged.edit();
 
-        editor.putBoolean("LOGGED", false);
-        editor.apply();
+        //editor.putBoolean("LOGGED", false);
+        //editor.apply();
+
 
         //b3 =(ImageButton) findViewById(R.id.snicker);
         //b3.setOnClickListener(this);
@@ -73,7 +75,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
             @Override
             public void success(Result<TwitterSession> result) {
                 // Do something with result, which provides a TwitterSession for making API calls
-                //TwitOk = true;
+                TwitOk = true;
                 editor.putBoolean("LOGGED", true);
                 editor.apply();
 
@@ -82,7 +84,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
             @Override
             public void failure(TwitterException exception) {
                 // Do something on failure
-                //TwitOk = false;
+                TwitOk = false;
                 editor.putBoolean("LOGGED", false);
 
             }
@@ -111,7 +113,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
 
         switch (item.getItemId()) {
             case R.id.about:
-                Toast.makeText(Bandera.this,"About me: awesome",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Bandera.this,"About",Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.exit:
@@ -119,6 +121,16 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
                     //startActivity(intent);
                     finish();
                 return true;
+
+            case R.id.twitter:
+                if (TwitOk == true) {
+                    TweetComposer.Builder builder = new TweetComposer.Builder(this).text("Twit Twit");//.image(myImageUri);
+                    builder.show();
+                }
+                else{
+                    Toast.makeText(Bandera.this,"No estas logueado con Twitter.",Toast.LENGTH_SHORT).show();
+
+                }
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -145,7 +157,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
                     startActivity(intent);
                 }
                 else {
-                    Toast.makeText(Bandera.this, "No estas logejat", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Bandera.this, "No estas logueado", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.button2:
@@ -159,7 +171,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
                     startActivity(intent);
                 }
                 else {
-                    Toast.makeText(Bandera.this, "No estas logejat", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Bandera.this, "No estas logueado", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.button6:
@@ -167,17 +179,45 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
                 startActivity(intent);
                 break;
             case R.id.button8:
-                if (silent == true) {
+                if (TwitOk == true) {
                     TweetComposer.Builder builder = new TweetComposer.Builder(this).text("Twit Twit");//.image(myImageUri);
                     builder.show();
                 }
                 else{
-                    Toast.makeText(Bandera.this,"Sin permiso",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Bandera.this,"No estas logueado con Twitter.",Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.button7:
-                intent = new Intent(getApplicationContext(), TrueLogIn.class);
-                startActivity(intent);
+                if (silent == false) {
+                    intent = new Intent(getApplicationContext(), TrueLogIn.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(Bandera.this,"Ya estas logueado.",Toast.LENGTH_SHORT).show();
+
+                }
+                break;
+            case R.id.button11:
+                if (silent == true){
+                    editor.putBoolean("LOGGED", false);
+                    editor.apply();
+                    Toast.makeText(Bandera.this,"Logged out.",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(Bandera.this,"No estas logueado.",Toast.LENGTH_SHORT).show();
+
+                }
+                break;
+            case R.id.button12:
+                if (silent == true){
+                    intent = new Intent(getApplicationContext(), Perfil.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(Bandera.this,"No estas logueado.",Toast.LENGTH_SHORT).show();
+
+                }
+                break;
             default:
                 break;
         }

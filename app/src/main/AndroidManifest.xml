@@ -49,6 +49,10 @@
             android:name=".TrueLogIn"
             android:label="@string/title_activity_true_log_in" >
         </activity>
+        <activity
+            android:name=".Perfil"
+            android:label="@string/title_activity_perfil" >
+        </activity>
     </application>
 
 </manifest>

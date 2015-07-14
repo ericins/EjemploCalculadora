@@ -83,6 +83,9 @@ public class Reproductor extends ActionBarActivity {
                 }
 
                 break;
+            case R.id.pause:
+                mp.pause();
+                break;
             case R.id.stop:
                 mp.stop();
                 mp.release();

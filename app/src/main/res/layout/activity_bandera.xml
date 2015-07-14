@@ -29,14 +29,6 @@
                 android:background="#0080ff"
                 android:id="@+id/FrameLayout1">
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="GPS"
-                    android:id="@+id/button6"
-                    android:layout_gravity="center"
-                    android:nestedScrollingEnabled="false"
-                    android:onClick="onClick" />
             </FrameLayout>
 
             <FrameLayout
@@ -49,11 +41,29 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Reproductor"
-                    android:id="@+id/button5"
+                    android:text="Calculadora"
+                    android:id="@+id/button1"
                     android:layout_gravity="center"
                     android:onClick="onClick"
                     android:gravity="center" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reproductor"
+                    android:id="@+id/button5"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:onClick="onClick"
+                    android:gravity="center" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GPS"
+                    android:id="@+id/button6"
+                    android:layout_gravity="center_horizontal|top"
+                    android:nestedScrollingEnabled="false"
+                    android:onClick="onClick" />
 
             </FrameLayout>
 
@@ -87,11 +97,20 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Calculadora"
-                        android:id="@+id/button1"
+                        android:text="Log out"
+                        android:id="@+id/button11"
+                        android:layout_gravity="left|center_vertical"
+                        android:onClick="onClick"
+                        android:visibility="visible" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Perfil"
+                        android:id="@+id/button12"
                         android:layout_gravity="center"
                         android:onClick="onClick"
-                        android:gravity="center" />
+                        android:visibility="visible" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -122,6 +141,7 @@
                         android:id="@+id/button8"
                         android:layout_gravity="right|center_vertical"
                         android:onClick="onClick" />
+
                 </FrameLayout>
 
                 <FrameLayout
