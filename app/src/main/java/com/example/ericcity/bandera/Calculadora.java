@@ -14,10 +14,14 @@ import android.widget.Toast;
 
 public class Calculadora extends ActionBarActivity {
 
+    TextView Numero;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculadora);
+
+        Numero = (TextView) findViewById(R.id.editText3);
     }
 
     @Override
@@ -67,7 +71,6 @@ public class Calculadora extends ActionBarActivity {
     public void onClick(View v) {
         if (!sign) {
             int num;
-            TextView Numero = (TextView) findViewById(R.id.editText3);
 
             // i = Integer.parseInt(Numero.getText().toString());
             primero *= 10;
@@ -130,8 +133,6 @@ public class Calculadora extends ActionBarActivity {
 
         }else{
             int num;
-            TextView Numero = (TextView) findViewById(R.id.editText3);
-
             // i = Integer.parseInt(Numero.getText().toString());
             segundo *= 10;
 
@@ -197,7 +198,6 @@ public class Calculadora extends ActionBarActivity {
 
     public void onClickSigno(View v){
         String signo2;
-        TextView Numero = (TextView) findViewById(R.id.editText3);
         switch(v.getId()){
             case R.id.butts:
                 if (!sign){
@@ -334,46 +334,54 @@ public class Calculadora extends ActionBarActivity {
                 break;
             case R.id.butti:
                 int resultado;
-                switch(signo){
-                    case "+":
-                        resultado = primero + segundo;
-                        Numero.setText(String.valueOf(resultado));
-                        primero = resultado;
-                        segundo = 0;
-                        ans = resultado;
-                        break;
-                    case "-":
-                        resultado = primero - segundo;
-                        Numero.setText(String.valueOf(resultado));
-                        primero = resultado;
-                        segundo = 0;
-                        ans = resultado;
-                        break;
-                    case "*":
-                        resultado = primero * segundo;
-                        Numero.setText(String.valueOf(resultado));
-                        primero = resultado;
-                        segundo = 0;
-                        ans = resultado;
-                        break;
-                    case "/":
-                        if (segundo==0){
-                            Toast.makeText(Calculadora.this,"Error /0",Toast.LENGTH_SHORT).show();
-                            int def=0;
-                            Numero.setText(String.valueOf(def));
-                            primero = 0;
-                            segundo = 0;
-                            sign = false;
-                        }
-                        else {
-                            resultado = primero / segundo;
+
+                if (sign) {
+                    switch (signo) {
+                        case "+":
+                            resultado = primero + segundo;
                             Numero.setText(String.valueOf(resultado));
                             primero = resultado;
                             segundo = 0;
                             ans = resultado;
-                        }
-                        break;
+                            break;
+                        case "-":
+                            resultado = primero - segundo;
+                            Numero.setText(String.valueOf(resultado));
+                            primero = resultado;
+                            segundo = 0;
+                            ans = resultado;
+                            break;
+                        case "*":
+                            resultado = primero * segundo;
+                            Numero.setText(String.valueOf(resultado));
+                            primero = resultado;
+                            segundo = 0;
+                            ans = resultado;
+                            break;
+                        case "/":
+                            if (segundo == 0) {
+                                Toast.makeText(Calculadora.this, "Error /0", Toast.LENGTH_SHORT).show();
+                                int def = 0;
+                                Numero.setText(String.valueOf(def));
+                                primero = 0;
+                                segundo = 0;
+                                sign = false;
+                            } else {
+                                resultado = primero / segundo;
+                                Numero.setText(String.valueOf(resultado));
+                                primero = resultado;
+                                segundo = 0;
+                                ans = resultado;
+                            }
+                            break;
 
+                    }
+                }
+                else{
+                    resultado = primero;
+                    Numero.setText(String.valueOf(resultado));
+                    segundo = 0;
+                    ans = resultado;
                 }
                 break;
             case R.id.buttp:
@@ -398,7 +406,6 @@ public class Calculadora extends ActionBarActivity {
         startActivity(intent);
     }
     public void onClickAns(View v) {
-        TextView Numero = (TextView) findViewById(R.id.editText3);
         if (!sign){
             primero = ans;
             Numero.setText(String.valueOf(primero));
@@ -408,25 +415,25 @@ public class Calculadora extends ActionBarActivity {
             Numero.setText(String.valueOf(primero + signo + segundo));
         }
     }
-/*
+
     @Override
     public void onSaveInstanceState(Bundle outSave){
         super.onSaveInstanceState(outSave);
-        outSave.putString("result", resultShow.getText().toString());
-        outSave.putInt("input",input);
-        outSave.putInt("temp",temp);
-        outSave.putInt("opID", opID);
-        outSave.putBoolean("negative", negative);
-        outSave.putBoolean("first", first);
+        outSave.putString("result", Numero.getText().toString());
+        outSave.putInt("ans",ans);
+        outSave.putInt("primero",primero);
+        outSave.putInt("segundo", segundo);
+        outSave.putBoolean("sign", sign);
+        outSave.putString("signo", signo);
     }
     @Override
     public void onRestoreInstanceState(Bundle inRestore){
         super.onRestoreInstanceState(inRestore);
-        resultShow.setText(inRestore.getString("result"));
-        input = inRestore.getInt("input");
-        temp = inRestore.getInt("temp");
-        opID = inRestore.getInt("opID");
-        negative = inRestore.getBoolean("negative");
-        first = inRestore.getBoolean("first");
-    }*/
+        Numero.setText(inRestore.getString("result"));
+        ans = inRestore.getInt("ans");
+        primero = inRestore.getInt("primero");
+        segundo = inRestore.getInt("segundo");
+        sign = inRestore.getBoolean("sign");
+        signo = inRestore.getString("signo");
+    }
 }
