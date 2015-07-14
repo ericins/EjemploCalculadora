@@ -408,4 +408,25 @@ public class Calculadora extends ActionBarActivity {
             Numero.setText(String.valueOf(primero + signo + segundo));
         }
     }
+/*
+    @Override
+    public void onSaveInstanceState(Bundle outSave){
+        super.onSaveInstanceState(outSave);
+        outSave.putString("result", resultShow.getText().toString());
+        outSave.putInt("input",input);
+        outSave.putInt("temp",temp);
+        outSave.putInt("opID", opID);
+        outSave.putBoolean("negative", negative);
+        outSave.putBoolean("first", first);
+    }
+    @Override
+    public void onRestoreInstanceState(Bundle inRestore){
+        super.onRestoreInstanceState(inRestore);
+        resultShow.setText(inRestore.getString("result"));
+        input = inRestore.getInt("input");
+        temp = inRestore.getInt("temp");
+        opID = inRestore.getInt("opID");
+        negative = inRestore.getBoolean("negative");
+        first = inRestore.getBoolean("first");
+    }*/
 }
