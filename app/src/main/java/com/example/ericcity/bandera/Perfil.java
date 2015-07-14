@@ -3,6 +3,7 @@ package com.example.ericcity.bandera;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,6 +20,11 @@ public class Perfil extends ActionBarActivity {
     SharedPreferences.Editor editor;
 
     String noma;
+    String addr;
+
+    BD bd;
+    Cursor c;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,10 +37,16 @@ public class Perfil extends ActionBarActivity {
         Nom = (TextView)findViewById(R.id.textView9);
         Adreca = (TextView)findViewById(R.id.textView12);
 
-
         noma = nombre.getString("Nom", "a");
+
+        bd = new BD(getApplicationContext());
+        c = bd.getAddrByUser(noma);
+        if (c.moveToFirst()) {
+            addr = c.getString(c.getColumnIndex("address"));
+        }
+
         Nom.setText(noma);
-        Adreca.setText("My Awesome Text");
+        Adreca.setText(addr);
 
     }
 

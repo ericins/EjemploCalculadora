@@ -59,6 +59,22 @@ public class BD extends SQLiteOpenHelper {
         return c;
     }
 
+    public Cursor getAddrByUser(String user) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] columns = {"address"};
+        String[] where = {user};
+        Cursor c = db.query(
+                STATISTICS_TABLE_NAME,                      // The table to query
+                columns,                                    // The columns to return
+                "name=?",                                   // The columns for the WHERE clause
+                where,                                      // The values for the WHERE clause
+                null,                                       // don't group the rows
+                null,                                       // don't filter by row groups
+                null                                        // The sort order
+        );
+        return c;
+    }
+
     public Cursor getAllUsers() {
         SQLiteDatabase db = this.getWritableDatabase();
         String[] columns = {"name"};
