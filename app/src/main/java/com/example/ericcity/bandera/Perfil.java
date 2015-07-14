@@ -1,6 +1,8 @@
 package com.example.ericcity.bandera;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,15 +15,25 @@ public class Perfil extends ActionBarActivity {
 
     TextView Nom;
     TextView Adreca;
+    SharedPreferences nombre;
+    SharedPreferences.Editor editor;
+
+    String noma;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
+        nombre = getSharedPreferences("Nom", Context.MODE_PRIVATE);
+        editor = nombre.edit();
+
+
         Nom = (TextView)findViewById(R.id.textView9);
         Adreca = (TextView)findViewById(R.id.textView12);
 
-        Nom.setText("My Awesome Text");
+
+        noma = nombre.getString("Nom", "a");
+        Nom.setText(noma);
         Adreca.setText("My Awesome Text");
 
     }

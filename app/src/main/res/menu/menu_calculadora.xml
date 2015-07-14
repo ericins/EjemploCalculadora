@@ -5,12 +5,7 @@
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" >
         <menu>
-            <item android:id="@+id/resnot" android:title="Mostrar resultado como notifiaciones de estado"
-                android:orderInCategory="110" app:showAsAction="never"
-                android:icon="@android:drawable/checkbox_off_background" />
-            <item android:id="@+id/restoast" android:title="Mostrar resultado como toast"
-                android:orderInCategory="110" app:showAsAction="never"
-                android:icon="@android:drawable/checkbox_off_background" />
+
             <item android:id="@+id/nav" android:title="Abrir navegador"
                 android:orderInCategory="110" app:showAsAction="never"
                 android:icon="@android:drawable/checkbox_off_background" />

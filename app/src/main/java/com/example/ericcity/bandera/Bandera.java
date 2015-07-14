@@ -44,7 +44,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
 
     Button b;
     Button b2;
-    Boolean TwitOk;
+    Boolean TwitOk = false;
 
     //ImageButton b3;
     @Override
@@ -201,6 +201,7 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
                 if (silent == true){
                     editor.putBoolean("LOGGED", false);
                     editor.apply();
+                    TwitOk = false;
                     Toast.makeText(Bandera.this,"Logged out.",Toast.LENGTH_SHORT).show();
                 }
                 else{
@@ -209,13 +210,17 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
                 }
                 break;
             case R.id.button12:
-                if (silent == true){
-                    intent = new Intent(getApplicationContext(), Perfil.class);
-                    startActivity(intent);
+                if (TwitOk == false) {
+                    if (silent == true) {
+                        intent = new Intent(getApplicationContext(), Perfil.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(Bandera.this, "No estas logueado.", Toast.LENGTH_SHORT).show();
+
+                    }
                 }
                 else{
-                    Toast.makeText(Bandera.this,"No estas logueado.",Toast.LENGTH_SHORT).show();
-
+                    Toast.makeText(Bandera.this, "Estas logueado con Twitter.", Toast.LENGTH_SHORT).show();
                 }
                 break;
             default:

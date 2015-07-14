@@ -18,6 +18,9 @@ public class TrueLogIn extends ActionBarActivity {
     SharedPreferences logged;
     SharedPreferences.Editor editor;
 
+    SharedPreferences nom;
+    SharedPreferences.Editor editorn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +29,9 @@ public class TrueLogIn extends ActionBarActivity {
 
         logged = getSharedPreferences("LOGGED", 0);
         editor = logged.edit();
+
+        nom= getSharedPreferences("Nom", 0);
+        editorn = nom.edit();
     }
 
     @Override
@@ -74,6 +80,10 @@ public class TrueLogIn extends ActionBarActivity {
                 bd = new BD(getApplicationContext());
 
                 user = tuser.getText().toString();
+
+                editorn.putString("Nom", user);
+                editorn.apply();
+
 
                 Cursor c = bd.getPassByUser(user);
                 //passcomp = c.toString();
