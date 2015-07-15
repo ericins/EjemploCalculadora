@@ -76,17 +76,24 @@ public class Login extends ActionBarActivity implements View.OnClickListener{
     public void onClick(View v){
         switch (v.getId()){
             case R.id.button:
-                ContentValues valuesToStore = new ContentValues();
-                valuesToStore.put("name", String.valueOf(name.getText()));
-                valuesToStore.put("pass", String.valueOf(pass.getText()));
-                valuesToStore.put("address", String.valueOf(address.getText()));
+                if ((name.getText().toString()==null)||(pass.getText().toString()==null)||(name.getText().toString()==null)) {
+                    Toast.makeText(getApplicationContext(), "Hay campos en blanco.", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    ContentValues valuesToStore = new ContentValues();
+                    valuesToStore.put("name", String.valueOf(name.getText()));
+                    valuesToStore.put("pass", String.valueOf(pass.getText()));
+                    valuesToStore.put("address", String.valueOf(address.getText()));
 
-                baseDades.createUser(valuesToStore, "Login");
+                    baseDades.createUser(valuesToStore, "Login");
 
-                Toast.makeText(getApplicationContext(), "Fet", Toast.LENGTH_SHORT).show();
-                name.setText("");
-                pass.setText("");
-                address.setText("");
+                    Toast.makeText(getApplicationContext(), "Fet", Toast.LENGTH_SHORT).show();
+                    name.setText("");
+                    pass.setText("");
+                    address.setText("");
+                    Intent intent = new Intent(getApplicationContext(), TrueLogIn.class);
+                    startActivity(intent);
+                }
                 break;
             case R.id.button4:
                 Log.v("button4","Clicat");

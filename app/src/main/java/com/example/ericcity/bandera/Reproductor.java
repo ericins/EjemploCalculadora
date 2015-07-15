@@ -16,14 +16,17 @@ import java.io.IOException;
 public class Reproductor extends ActionBarActivity {
 
     //Button play;
-
     MediaPlayer mp = new MediaPlayer();
+    MediaPlayer mp2 = new MediaPlayer();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reproductor);
 
         mp = MediaPlayer.create(this, R.raw.parousia);
+        mp2 = MediaPlayer.create(this, R.raw.halcyon);
+
         //play = (Button)findViewById(R.id.play);
     }
 
@@ -54,10 +57,31 @@ public class Reproductor extends ActionBarActivity {
     //File sdCard = Environment.getExternalStorageDirectory();
     //File song = new File(sdCard.getAbsolutePath() + "/Music/Xi-parousia.mp3");
 
-    boolean started = false;
+    boolean song = false;
 
     public void onClick(View v){
         switch (v.getId()) {
+            case R.id.buttpar:
+                song = true;
+                if (mp2.isPlaying()){
+                    mp2.stop();
+                    mp2.release();
+                    mp2 = MediaPlayer.create(this, R.raw.halcyon);
+                }
+                mp.start();
+
+                break;
+
+            case R.id.buthal:
+                song = false;
+                if (mp.isPlaying()){
+                    mp.stop();
+                    mp.release();
+                    mp = MediaPlayer.create(this, R.raw.parousia);
+                }
+                mp2.start();
+
+                break;
             case R.id.play:/*
                 if (!mp.isPlaying()&&(!started)){
                     try{
@@ -72,29 +96,49 @@ public class Reproductor extends ActionBarActivity {
                 }
                 else {
                     mp.start();
-                }*/
-
-                if (mp.isPlaying()) {
-                    mp.pause();
+                                }*/
+                if (song) {
+                    if (mp.isPlaying()) {
+                        mp.pause();
+                    } else {
+                        mp.start();
+                        //findViewById(R.id.play).setBackgroundResource(R.drawable.);
+                    }
                 }
-                else {
-                    mp.start();
-                    //findViewById(R.id.play).setBackgroundResource(R.drawable.);
+                else{
+                    if (mp2.isPlaying()) {
+                        mp2.pause();
+                    } else {
+                        mp2.start();
+                        //findViewById(R.id.play).setBackgroundResource(R.drawable.);
+                    }
                 }
 
                 break;
             case R.id.pause:
-                mp.pause();
+                if (song) {
+                    mp.pause();
+                }
+                else{
+                    mp2.pause();
+                }
                 break;
             case R.id.stop:
-                mp.stop();
-                mp.release();
-                mp = MediaPlayer.create(this, R.raw.parousia);
+                if (song) {
+                    mp.stop();
+                    mp.release();
+                    mp = MediaPlayer.create(this, R.raw.parousia);
+                }
+                else{
+                    mp2.stop();
+                    mp2.release();
+                    mp2 = MediaPlayer.create(this, R.raw.halcyon);
+                }
                 //started = false;
                 break;
         }
     }
-
+/*
     @Override
     protected void onStop() {
         if (mp.isPlaying()){
@@ -103,4 +147,5 @@ public class Reproductor extends ActionBarActivity {
         }
         super.onStop();
     }
+    */
 }

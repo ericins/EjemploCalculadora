@@ -222,8 +222,18 @@ public class Calculadora extends ActionBarActivity {
                             Numero.setText(resultado + signo2);
                             break;
                         case "/":
-                            resultado = primero / segundo;
-                            Numero.setText(resultado + signo2);
+                            if (segundo==0){
+                                Toast.makeText(Calculadora.this, "Error /0", Toast.LENGTH_SHORT).show();
+                                int def = 0;
+                                Numero.setText(String.valueOf(def));
+                                primero = 0;
+                                segundo = 0;
+                                sign = false;
+                            }
+                            else {
+                                resultado = primero / segundo;
+                                Numero.setText(resultado + signo2);
+                            }
                             break;
                     }
                     primero = resultado;
@@ -255,8 +265,18 @@ public class Calculadora extends ActionBarActivity {
                             Numero.setText(resultado + signo2);
                             break;
                         case "/":
-                            resultado = primero / segundo;
-                            Numero.setText(resultado + signo2);
+                            if (segundo==0){
+                                Toast.makeText(Calculadora.this, "Error /0", Toast.LENGTH_SHORT).show();
+                                int def = 0;
+                                Numero.setText(String.valueOf(def));
+                                primero = 0;
+                                segundo = 0;
+                                sign = false;
+                            }
+                            else {
+                                resultado = primero / segundo;
+                                Numero.setText(resultado + signo2);
+                            }
                             break;
                     }
                     primero = resultado;
@@ -288,8 +308,18 @@ public class Calculadora extends ActionBarActivity {
                             Numero.setText(resultado + signo2);
                             break;
                         case "/":
-                            resultado = primero / segundo;
-                            Numero.setText(resultado + signo2);
+                            if (segundo==0){
+                                Toast.makeText(Calculadora.this, "Error /0", Toast.LENGTH_SHORT).show();
+                                int def = 0;
+                                Numero.setText(String.valueOf(def));
+                                primero = 0;
+                                segundo = 0;
+                                sign = false;
+                            }
+                            else {
+                                resultado = primero / segundo;
+                                Numero.setText(resultado + signo2);
+                            }
                             break;
                     }
                     primero = resultado;
@@ -322,8 +352,18 @@ public class Calculadora extends ActionBarActivity {
                             Numero.setText(resultado + signo2);
                             break;
                         case "/":
-                            resultado = primero / segundo;
-                            Numero.setText(resultado + signo2);
+                            if (segundo==0){
+                                Toast.makeText(Calculadora.this, "Error /0", Toast.LENGTH_SHORT).show();
+                                int def = 0;
+                                Numero.setText(String.valueOf(def));
+                                primero = 0;
+                                segundo = 0;
+                                sign = false;
+                            }
+                            else {
+                                resultado = primero / segundo;
+                                Numero.setText(resultado + signo2);
+                            }
                             break;
                     }
                     primero = resultado;

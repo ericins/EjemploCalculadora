@@ -122,15 +122,31 @@ public class Bandera extends ActionBarActivity implements View.OnClickListener{
                     finish();
                 return true;
 
-            case R.id.twitter:
-                if (TwitOk == true) {
-                    TweetComposer.Builder builder = new TweetComposer.Builder(this).text("Twit Twit");//.image(myImageUri);
-                    builder.show();
+            case R.id.twitter:/*
+                if (TwitOk == false) {
+                    loginButton.setCallback(new Callback<TwitterSession>() {
+                        @Override
+                        public void success(Result<TwitterSession> result) {
+                            // Do something with result, which provides a TwitterSession for making API calls
+                            TwitOk = true;
+                            editor.putBoolean("LOGGED", true);
+                            editor.apply();
+
+                        }
+
+                        @Override
+                        public void failure(TwitterException exception) {
+                            // Do something on failure
+                            TwitOk = false;
+                            editor.putBoolean("LOGGED", false);
+
+                        }
+                    });
                 }
                 else{
-                    Toast.makeText(Bandera.this,"No estas logueado con Twitter.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Bandera.this,"Ya estas logueado con Twitter.",Toast.LENGTH_SHORT).show();
 
-                }
+                }*/
 
             default:
                 return super.onOptionsItemSelected(item);

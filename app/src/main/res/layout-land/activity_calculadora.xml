@@ -7,7 +7,6 @@
     tools:context="com.example.ericcity.bandera.Calculadora">
 
     <Button
-        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DEL"
@@ -20,12 +19,12 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:id="@+id/editText3"
         android:gravity="right"
         android:text="0"
         android:height="50dp"
-        android:textSize="40dp" />
+        android:textSize="20dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -196,8 +195,8 @@
         android:id="@+id/buttonCall"
         android:onClick="onClick"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignRight="@+id/editText3"
+        android:layout_alignEnd="@+id/editText3" />
 
     <Button
         android:layout_width="wrap_content"

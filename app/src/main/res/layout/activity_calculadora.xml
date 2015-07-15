@@ -7,15 +7,16 @@
     tools:context="com.example.ericcity.bandera.Calculadora">
 
     <Button
-        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DEL"
         android:id="@+id/buttdel"
         android:onClick="onClickSigno"
-        android:layout_alignTop="@+id/butti"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/buttd"
+        android:layout_alignRight="@+id/buttd"
+        android:layout_alignEnd="@+id/buttd"
+        android:layout_toRightOf="@+id/buttans"
+        android:layout_toEndOf="@+id/buttans" />
 
     <TextView
         android:layout_width="match_parent"
@@ -28,7 +29,7 @@
         android:textSize="50dp" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="1"
         android:id="@+id/butt1"
@@ -38,7 +39,7 @@
         android:onClick="onClick"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="2"
         android:id="@+id/butt2"
@@ -48,7 +49,7 @@
         android:onClick="onClick"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="3"
         android:id="@+id/butt3"
@@ -58,7 +59,7 @@
         android:onClick="onClick"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="4"
         android:id="@+id/butt4"
@@ -68,7 +69,7 @@
         android:onClick="onClick"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="5"
         android:id="@+id/butt5"
@@ -78,7 +79,7 @@
         android:onClick="onClick"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="6"
         android:id="@+id/butt6"
@@ -88,7 +89,7 @@
         android:onClick="onClick"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="7"
         android:id="@+id/butt7"
@@ -98,7 +99,7 @@
         android:onClick="onClick"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="8"
         android:id="@+id/butt8"
@@ -108,7 +109,7 @@
         android:onClick="onClick"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="9"
         android:id="@+id/butt9"
@@ -118,7 +119,7 @@
         android:onClick="onClick"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="0"
         android:id="@+id/butt0"
@@ -126,16 +127,17 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:onClick="onClick"
+        android:layout_toStartOf="@+id/buttonCall"
         android:layout_alignRight="@+id/butt8"
         android:layout_alignEnd="@+id/butt8" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="."
         android:id="@+id/buttp"
         android:onClick="onClickSigno"
-        android:layout_below="@+id/butt8"
+        android:layout_alignTop="@+id/buttd"
         android:layout_toRightOf="@+id/butt8"
         android:layout_toEndOf="@+id/butt8" />
 
@@ -183,15 +185,17 @@
         android:padding="2dp" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="="
         android:id="@+id/butti"
         android:onClick="onClickSigno"
         android:padding="2dp"
         android:layout_below="@+id/butt0"
-        android:layout_toRightOf="@+id/butt8"
-        android:layout_toEndOf="@+id/butt8" />
+        android:layout_alignRight="@+id/butt0"
+        android:layout_alignEnd="@+id/butt0"
+        android:layout_alignLeft="@+id/butt0"
+        android:layout_alignStart="@+id/butt0" />
 
     <Button
         android:layout_width="wrap_content"
@@ -207,9 +211,10 @@
         android:layout_height="wrap_content"
         android:text="ANS"
         android:id="@+id/buttans"
-        android:layout_alignTop="@+id/butti"
+        android:onClick="onClickAns"
+        android:layout_below="@+id/buttp"
         android:layout_toRightOf="@+id/butti"
-        android:layout_toEndOf="@+id/butti"
-        android:onClick="onClickAns" />
+        android:layout_alignRight="@+id/buttp"
+        android:layout_alignEnd="@+id/buttp" />
 
 </RelativeLayout>
